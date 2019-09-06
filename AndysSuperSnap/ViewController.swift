@@ -17,17 +17,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        drawCard(card: previousCard, value: "5❤️")
-        drawCard(card: currentCard, value: "9♣")
+        drawCard(cardView: previousCard, card: Card("5❤️"))
+        drawCard(cardView: currentCard, card: Card("9♣"))
     }
 
-    func drawCard(card: UILabel, value: String) {
-        card.layer.cornerRadius = 10
-        card.layer.borderColor = UIColor.black.cgColor
-        card.layer.borderWidth = 1
-        card.layer.masksToBounds = true
+    func drawCard(cardView: UILabel, card: Card) {
+        cardView.layer.cornerRadius = 10
+        cardView.layer.borderColor = UIColor.black.cgColor
+        cardView.layer.borderWidth = 1
+        cardView.layer.masksToBounds = true
         
-        card.text = value
+        cardView.text = card.value
     }
     
 }
