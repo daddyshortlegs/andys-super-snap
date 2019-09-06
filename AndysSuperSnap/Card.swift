@@ -1,7 +1,9 @@
 class Card {
-    let value: String
+    let pipValue: String
+    let suit: String
     
-    required init(_ value: String) {
-        self.value = value
+    required init(pipValue: String, suit: String) {
+        self.pipValue = pipValue
+        self.suit = suit
     }
 }
