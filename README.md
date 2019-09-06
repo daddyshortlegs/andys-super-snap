@@ -1,4 +1,4 @@
-# andys-super-snap
+# Snap
 
 Snap, with a revolutionary fruity UI
 
