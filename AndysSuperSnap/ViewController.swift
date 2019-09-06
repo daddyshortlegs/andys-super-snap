@@ -19,6 +19,17 @@ class ViewController: UIViewController {
 
         drawCard(cardView: previousCard, card: Card(pipValue: .five, suit: .hearts))
         drawCard(cardView: currentCard, card: Card(pipValue: .nine, suit: .clubs))
+        
+        let deck = Deck()
+        
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            if !deck.isEmpty() {
+                self.currentCard.text = deck.takeCard()?.value
+            } else {
+                timer.invalidate()
+            }
+        }
     }
 
     func drawCard(cardView: UILabel, card: Card) {

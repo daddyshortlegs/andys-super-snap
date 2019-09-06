@@ -10,7 +10,9 @@ class DeckTests: XCTestCase {
     }
     
     func testAllCardsArePresent() {
+        XCTAssertFalse(deck.isEmpty())
         ["❤️", "♣️", "♦️", "♠️"].forEach { validateAllPipsPresent(for: $0) }
+        XCTAssertTrue(deck.isEmpty())
     }
     
     func validateAllPipsPresent(for suit: String) {
@@ -27,7 +29,6 @@ class DeckTests: XCTestCase {
         XCTAssertEqual("J\(suit)", deck.takeCard()?.value)
         XCTAssertEqual("Q\(suit)", deck.takeCard()?.value)
         XCTAssertEqual("K\(suit)", deck.takeCard()?.value)
-
     }
 
 }

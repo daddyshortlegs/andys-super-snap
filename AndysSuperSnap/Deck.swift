@@ -3,6 +3,7 @@ class Deck {
     
     init() {
         addAllSuits()
+        cards.shuffle()
     }
     
     func addAllSuits() {
@@ -19,5 +20,9 @@ class Deck {
     
     func takeCard() -> Card? {
         return cards.popLast()
+    }
+    
+    func isEmpty() -> Bool {
+        return cards.isEmpty
     }
 }
