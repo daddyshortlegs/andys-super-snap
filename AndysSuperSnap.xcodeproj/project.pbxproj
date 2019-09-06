@@ -12,8 +12,9 @@
 		A1CD657E2322E7F9004C0189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD657C2322E7F9004C0189 /* Main.storyboard */; };
 		A1CD65802322E7FB004C0189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1CD657F2322E7FB004C0189 /* Assets.xcassets */; };
 		A1CD65832322E7FB004C0189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD65812322E7FB004C0189 /* LaunchScreen.storyboard */; };
-		A1CD658E2322E7FB004C0189 /* AndysSuperSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD658D2322E7FB004C0189 /* AndysSuperSnapTests.swift */; };
+		A1CD658E2322E7FB004C0189 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD658D2322E7FB004C0189 /* DeckTests.swift */; };
 		A1CD65992322EE81004C0189 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD65982322EE81004C0189 /* Card.swift */; };
+		A1CD659D2322F5A1004C0189 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD659C2322F5A1004C0189 /* Deck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +36,10 @@
 		A1CD65822322E7FB004C0189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1CD65842322E7FB004C0189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CD65892322E7FB004C0189 /* AndysSuperSnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndysSuperSnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1CD658D2322E7FB004C0189 /* AndysSuperSnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndysSuperSnapTests.swift; sourceTree = "<group>"; };
+		A1CD658D2322E7FB004C0189 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		A1CD658F2322E7FB004C0189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CD65982322EE81004C0189 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A1CD659C2322F5A1004C0189 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				A1CD65812322E7FB004C0189 /* LaunchScreen.storyboard */,
 				A1CD65842322E7FB004C0189 /* Info.plist */,
 				A1CD65982322EE81004C0189 /* Card.swift */,
+				A1CD659C2322F5A1004C0189 /* Deck.swift */,
 			);
 			path = AndysSuperSnap;
 			sourceTree = "<group>";
@@ -93,7 +96,7 @@
 		A1CD658C2322E7FB004C0189 /* AndysSuperSnapTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1CD658D2322E7FB004C0189 /* AndysSuperSnapTests.swift */,
+				A1CD658D2322E7FB004C0189 /* DeckTests.swift */,
 				A1CD658F2322E7FB004C0189 /* Info.plist */,
 			);
 			path = AndysSuperSnapTests;
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CD659D2322F5A1004C0189 /* Deck.swift in Sources */,
 				A1CD657B2322E7F9004C0189 /* ViewController.swift in Sources */,
 				A1CD65992322EE81004C0189 /* Card.swift in Sources */,
 				A1CD65792322E7F9004C0189 /* AppDelegate.swift in Sources */,
@@ -210,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1CD658E2322E7FB004C0189 /* AndysSuperSnapTests.swift in Sources */,
+				A1CD658E2322E7FB004C0189 /* DeckTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         cardView.layer.borderWidth = 1
         cardView.layer.masksToBounds = true
         
-        cardView.text = "\(card.pipValue.rawValue)\(card.suit.rawValue)"
+        cardView.text = "\(card.value)"
     }
     
 }

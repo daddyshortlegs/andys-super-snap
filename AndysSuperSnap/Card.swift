@@ -24,4 +24,8 @@ struct Card {
     
     var pipValue: Pip
     var suit: Suit
+    
+    var value: String {
+        return "\(pipValue.rawValue)\(suit.rawValue)"
+    }
 }
