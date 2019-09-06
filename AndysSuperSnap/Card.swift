@@ -1,9 +1,9 @@
 struct Card {
-    enum Suit: String {
+    enum Suit: String, CaseIterable {
         case hearts = "❤️"
-        case clubs = "♣"
-        case diamonds = "♦"
-        case spades = "♠"
+        case clubs = "♣️"
+        case diamonds = "♦️"
+        case spades = "♠️"
     }
 
     enum Pip: String, CaseIterable {

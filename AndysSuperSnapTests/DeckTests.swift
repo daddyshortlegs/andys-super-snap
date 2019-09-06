@@ -3,23 +3,31 @@ import XCTest
 
 class DeckTests: XCTestCase {
 
-    func testExample() {
-        let deck = Deck()
-        
-        
-        XCTAssertEqual("A❤️", deck.takeCard()?.value)
-        XCTAssertEqual("2❤️", deck.takeCard()?.value)
-        XCTAssertEqual("3❤️", deck.takeCard()?.value)
-        XCTAssertEqual("4❤️", deck.takeCard()?.value)
-        XCTAssertEqual("5❤️", deck.takeCard()?.value)
-        XCTAssertEqual("6❤️", deck.takeCard()?.value)
-        XCTAssertEqual("7❤️", deck.takeCard()?.value)
-        XCTAssertEqual("8❤️", deck.takeCard()?.value)
-        XCTAssertEqual("9❤️", deck.takeCard()?.value)
-        XCTAssertEqual("10❤️", deck.takeCard()?.value)
-        XCTAssertEqual("J❤️", deck.takeCard()?.value)
-        XCTAssertEqual("Q❤️", deck.takeCard()?.value)
-        XCTAssertEqual("K❤️", deck.takeCard()?.value)
+    var deck: Deck!
+    
+    override func setUp() {
+        deck = Deck()
+    }
+    
+    func testAllCardsArePresent() {
+        ["❤️", "♣️", "♦️", "♠️"].forEach { validateAllPipsPresent(for: $0) }
+    }
+    
+    func validateAllPipsPresent(for suit: String) {
+        XCTAssertEqual("A\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("2\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("3\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("4\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("5\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("6\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("7\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("8\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("9\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("10\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("J\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("Q\(suit)", deck.takeCard()?.value)
+        XCTAssertEqual("K\(suit)", deck.takeCard()?.value)
+
     }
 
 }
