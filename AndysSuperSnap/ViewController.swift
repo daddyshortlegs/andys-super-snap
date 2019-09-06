@@ -22,14 +22,19 @@ class ViewController: UIViewController {
         
         let deck = Deck()
         
-        var previousDrawnCard = ""
+        var previousDrawnCard: String?
         
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if !deck.isEmpty() {
                 let drawnCard = deck.takeCard()?.value
                 
                 self.currentCard.text = drawnCard
-                self.previousCard.text = previousDrawnCard
+                self.currentCard.isHidden = false
+                
+                if previousDrawnCard != nil {
+                    self.previousCard.text = previousDrawnCard
+                    self.previousCard.isHidden = false
+                }
                 
                 previousDrawnCard = drawnCard ?? ""
                 
@@ -44,8 +49,6 @@ class ViewController: UIViewController {
         cardView.layer.borderColor = UIColor.black.cgColor
         cardView.layer.borderWidth = 1
         cardView.layer.masksToBounds = true
-        
-        cardView.text = "\(card.value)"
     }
     
 }
