@@ -6,7 +6,7 @@ struct Card {
         case spades = "♠"
     }
 
-    enum Pip: String {
+    enum Pip: String, CaseIterable {
         case ace = "A"
         case two = "2"
         case three = "3"
