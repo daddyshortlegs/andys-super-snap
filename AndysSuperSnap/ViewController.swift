@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        drawCard(cardView: previousCard, card: Card(pipValue: "5", suit: .hearts))
-        drawCard(cardView: currentCard, card: Card(pipValue: "9", suit: .clubs))
+        drawCard(cardView: previousCard, card: Card(pipValue: .five, suit: .hearts))
+        drawCard(cardView: currentCard, card: Card(pipValue: .nine, suit: .clubs))
     }
 
     func drawCard(cardView: UILabel, card: Card) {
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         cardView.layer.borderWidth = 1
         cardView.layer.masksToBounds = true
         
-        cardView.text = "\(card.pipValue)\(card.suit.rawValue)"
+        cardView.text = "\(card.pipValue.rawValue)\(card.suit.rawValue)"
     }
     
 }
