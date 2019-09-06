@@ -1,4 +1,4 @@
-class Card {
+struct Card {
     enum Suit: String {
         case hearts = "❤️"
         case clubs = "♣"
@@ -22,11 +22,6 @@ class Card {
         case king = "K"
     }
     
-    let pipValue: Pip
-    let suit: Suit
-    
-    required init(pipValue: Pip, suit: Suit) {
-        self.pipValue = pipValue
-        self.suit = suit
-    }
+    var pipValue: Pip
+    var suit: Suit
 }
