@@ -22,10 +22,17 @@ class ViewController: UIViewController {
         
         let deck = Deck()
         
+        var previousDrawnCard = ""
         
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if !deck.isEmpty() {
-                self.currentCard.text = deck.takeCard()?.value
+                let drawnCard = deck.takeCard()?.value
+                
+                self.currentCard.text = drawnCard
+                self.previousCard.text = previousDrawnCard
+                
+                previousDrawnCard = drawnCard ?? ""
+                
             } else {
                 timer.invalidate()
             }
