@@ -40,9 +40,9 @@ class ViewController: UIViewController, GameStatusPresenter {
         self.showCard(cardView: self.currentCard, value: drawnCard)
     }
     
-    func updatePreviousCardView(drawCard: String?) {
-        if drawCard != nil {
-            self.showCard(cardView: self.previousCard, value: drawCard)
+    func updatePreviousCardView(drawnCard: String?) {
+        if drawnCard != nil {
+            self.showCard(cardView: self.previousCard, value: drawnCard)
         }
     }
     

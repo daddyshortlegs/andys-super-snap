@@ -3,10 +3,10 @@ import XCTest
 
 class DeckTests: XCTestCase {
 
-    var deck: Deck!
+    var deck: Standard52CardDeck!
     
     override func setUp() {
-        deck = Deck()
+        deck = Standard52CardDeck()
     }
     
     func testAllCardsArePresent() {

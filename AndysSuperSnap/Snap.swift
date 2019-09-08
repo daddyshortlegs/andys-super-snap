@@ -1,7 +1,8 @@
 class Snap {
     let presenter: GameStatusPresenter
     
-    
+    var deck: Deck = Standard52CardDeck()
+
     var previousDrawnCard: String?
 
     init(presenter: GameStatusPresenter) {
@@ -9,8 +10,7 @@ class Snap {
     }
     
     func play() {
-        let deck = Deck()
-        
+        deck.shuffle()
         
         presenter.displayStatus(message: "Get ready....")
         
@@ -20,7 +20,7 @@ class Snap {
             let drawnCard = deck.takeCard()?.value
             
             presenter.updateCurrentCardView(drawnCard: drawnCard)
-            presenter.updatePreviousCardView(drawCard: previousDrawnCard)
+            presenter.updatePreviousCardView(drawnCard: previousDrawnCard)
             
             previousDrawnCard = drawnCard ?? ""
         } else {
