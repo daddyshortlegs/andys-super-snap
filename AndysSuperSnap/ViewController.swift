@@ -22,29 +22,10 @@ class ViewController: UIViewController, GameStatusPresenter {
         drawCard(cardView: previousCard)
         drawCard(cardView: currentCard)
         
-        let deck = Deck()
-        
-        var previousDrawnCard: String?
-    
-        displayStatus(message: "Get ready....")
+        let snap = Snap(presenter: self)
         
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            if !deck.isEmpty() {
-                self.displayStatus(message: "")
-
-                let drawnCard = deck.takeCard()?.value
-                self.showCard(cardView: self.currentCard, value: drawnCard)
-                
-                if previousDrawnCard != nil {
-                    self.showCard(cardView: self.previousCard, value: previousDrawnCard)
-                }
-                
-                previousDrawnCard = drawnCard ?? ""
-                
-            } else {
-                timer.invalidate()
-                self.displayStatus(message: "Game over")
-            }
+            snap.play()
         }
     }
 
@@ -53,6 +34,16 @@ class ViewController: UIViewController, GameStatusPresenter {
         cardView.layer.borderColor = UIColor.black.cgColor
         cardView.layer.borderWidth = 1
         cardView.layer.masksToBounds = true
+    }
+    
+    func updateCurrentCardView(drawnCard: String?) {
+        self.showCard(cardView: self.currentCard, value: drawnCard)
+    }
+    
+    func updatePreviousCardView(drawCard: String?) {
+        if drawCard != nil {
+            self.showCard(cardView: self.previousCard, value: drawCard)
+        }
     }
     
     func showCard(cardView: UILabel, value: String?) {
