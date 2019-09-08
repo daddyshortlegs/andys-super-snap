@@ -34,12 +34,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=".." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shf-zO-jEh">
+                                <rect key="frame" x="85" y="668" width="245" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.075215611372267815" green="0.41335411269430056" blue="0.10556180535559477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="currentCard" destination="h0H-Bh-Ddd" id="Mgs-RX-ue8"/>
+                        <outlet property="gameStatus" destination="Shf-zO-jEh" id="L3T-Bt-lTh"/>
                         <outlet property="previousCard" destination="hsw-Wq-Txu" id="7nM-dE-rIN"/>
                     </connections>
                 </viewController>

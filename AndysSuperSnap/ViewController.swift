@@ -14,41 +14,52 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var currentCard: UILabel!
     
+    @IBOutlet weak var gameStatus: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        drawCard(cardView: previousCard, card: Card(pipValue: .five, suit: .hearts))
-        drawCard(cardView: currentCard, card: Card(pipValue: .nine, suit: .clubs))
+        drawCard(cardView: previousCard)
+        drawCard(cardView: currentCard)
         
         let deck = Deck()
         
         var previousDrawnCard: String?
+    
+        gameStatus.text = "Get ready...."
         
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if !deck.isEmpty() {
+                self.gameStatus.text = ""
+
                 let drawnCard = deck.takeCard()?.value
-                
-                self.currentCard.text = drawnCard
-                self.currentCard.isHidden = false
+                self.showCard(cardView: self.currentCard, value: drawnCard)
                 
                 if previousDrawnCard != nil {
-                    self.previousCard.text = previousDrawnCard
-                    self.previousCard.isHidden = false
+                    self.showCard(cardView: self.previousCard, value: previousDrawnCard)
                 }
                 
                 previousDrawnCard = drawnCard ?? ""
                 
             } else {
                 timer.invalidate()
+                self.gameStatus.text = "Game over"
             }
         }
     }
 
-    func drawCard(cardView: UILabel, card: Card) {
+    func drawCard(cardView: UILabel) {
         cardView.layer.cornerRadius = 10
         cardView.layer.borderColor = UIColor.black.cgColor
         cardView.layer.borderWidth = 1
         cardView.layer.masksToBounds = true
+    }
+    
+    func showCard(cardView: UILabel, value: String?) {
+        if value != nil {
+            cardView.text = value
+            cardView.isHidden = false
+        }
     }
     
 }
