@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GameStatusPresenter {
 
     @IBOutlet weak var previousCard: UILabel!
     
@@ -26,11 +26,11 @@ class ViewController: UIViewController {
         
         var previousDrawnCard: String?
     
-        gameStatus.text = "Get ready...."
+        displayStatus(message: "Get ready....")
         
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if !deck.isEmpty() {
-                self.gameStatus.text = ""
+                self.displayStatus(message: "")
 
                 let drawnCard = deck.takeCard()?.value
                 self.showCard(cardView: self.currentCard, value: drawnCard)
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
                 
             } else {
                 timer.invalidate()
-                self.gameStatus.text = "Game over"
+                self.displayStatus(message: "Game over")
             }
         }
     }
@@ -60,6 +60,10 @@ class ViewController: UIViewController {
             cardView.text = value
             cardView.isHidden = false
         }
+    }
+    
+    func displayStatus(message: String) {
+        self.gameStatus.text = message
     }
     
 }
