@@ -11,17 +11,28 @@ class SnapTests: XCTestCase, GameStatusPresenter {
     
     var previousCardView: String!
     
+    var fakeDeck: FakeDeck!
+    
     override func setUp() {
         snap = Snap(presenter: self)
-        snap.deck = FakeDeck()
     }
     
     func testShouldGameOverMessage_whenNoCardsTurned() {
         snap.play()
-        
         verifyMessageDisplayed(message: "Game over")
     }
 
+    func testShouldShowPlayerTurnedCard_whenCardTakenFromDeck() {
+        fakeDeck = FakeDeck()
+        fakeDeck.addCard(Card(pipValue: .five, suit: .hearts))
+        snap.deck = fakeDeck
+
+        snap.play()
+        
+        verifyMessageDisplayed(message: "Player 1 turned 5H")
+        verifyMessageDisplayed(message: "Game over")
+    }
+    
     func verifyMessageDisplayed(message: String) {
         let foundMessage = statusMessages.first { $0 == message }
         XCTAssertTrue((foundMessage != nil))
@@ -29,10 +40,6 @@ class SnapTests: XCTestCase, GameStatusPresenter {
     
     func displayStatus(message: String) {
         self.statusMessages.append(message)
-    }
-    
-    func verifyStatusMessageSent(message: String) {
-        
     }
     
     func updateCurrentCardView(drawnCard: String?) {

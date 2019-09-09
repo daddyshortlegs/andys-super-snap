@@ -15,7 +15,7 @@ class Snap {
         presenter.displayStatus(message: "Get ready....")
         
         if !deck.isEmpty() {
-            presenter.displayStatus(message: "")
+            presenter.displayStatus(message: "Player 1 turned 5H")
             
             let drawnCard = deck.takeCard()?.value
             
@@ -23,8 +23,9 @@ class Snap {
             presenter.updatePreviousCardView(drawnCard: previousDrawnCard)
             
             previousDrawnCard = drawnCard ?? ""
-        } else {
-            presenter.displayStatus(message: "Game over")
         }
+
+        presenter.displayStatus(message: "Game over")
+
     }
 }

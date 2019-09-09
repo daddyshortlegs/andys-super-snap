@@ -1,16 +1,22 @@
 @testable import AndysSuperSnap
 
 class FakeDeck: Deck {
+    
+    var cards = [Card]()
+    
     func shuffle() {
-        
+    }
+    
+    func addCard(_ card: Card) {
+        cards.append(card)
     }
     
     func takeCard() -> Card? {
-        return nil
+        return cards.popLast()
     }
     
     func isEmpty() -> Bool {
-        return true
+        return cards.count == 0
     }
     
     
