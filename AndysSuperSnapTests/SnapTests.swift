@@ -5,7 +5,7 @@ class SnapTests: XCTestCase, GameStatusPresenter {
 
     var snap: Snap!
     
-    var status: String!
+    var statusMessages = [String]()
 
     var currentCardView: String!
     
@@ -16,15 +16,23 @@ class SnapTests: XCTestCase, GameStatusPresenter {
         snap.deck = FakeDeck()
     }
     
-    func testShouldShowGameStartingMessage() {
+    func testShouldGameOverMessage_whenNoCardsTurned() {
         snap.play()
         
-        XCTAssertEqual("Game over", status)
+        verifyMessageDisplayed(message: "Game over")
     }
 
+    func verifyMessageDisplayed(message: String) {
+        let foundMessage = statusMessages.first { $0 == message }
+        XCTAssertTrue((foundMessage != nil))
+    }
     
     func displayStatus(message: String) {
-        self.status = message
+        self.statusMessages.append(message)
+    }
+    
+    func verifyStatusMessageSent(message: String) {
+        
     }
     
     func updateCurrentCardView(drawnCard: String?) {
