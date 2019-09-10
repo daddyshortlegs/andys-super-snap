@@ -14,14 +14,20 @@ class Snap {
         
         presenter.displayStatus(message: "Get ready....")
         
-        if !deck.isEmpty() {
-            
+        var currentPlayer = 1
+        while !deck.isEmpty() {
             let theCard = deck.takeCard()
             
             let drawnCard = theCard?.value
             if drawnCard != nil {
-                let theString = "Player 1 turned " + drawnCard!
+                let theString = "Player \(currentPlayer) turned " + drawnCard!
                 presenter.displayStatus(message: theString)
+                
+                if currentPlayer == 1 {
+                    currentPlayer = 2
+                } else {
+                    currentPlayer = 1
+                }
             }
 
             presenter.updateCurrentCardView(drawnCard: drawnCard)
