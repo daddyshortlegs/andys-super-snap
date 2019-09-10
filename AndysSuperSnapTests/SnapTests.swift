@@ -29,13 +29,29 @@ class SnapTests: XCTestCase, GameStatusPresenter {
 
         snap.play()
         
-        verifyMessageDisplayed(message: "Player 1 turned 5H")
+        verifyMessageDisplayed(message: "Player 1 turned 5❤️")
         verifyMessageDisplayed(message: "Game over")
     }
+
+    func testShouldSTurnADifferentCard() {
+        fakeDeck = FakeDeck()
+        fakeDeck.addCard(Card(pipValue: .ace, suit: .spades))
+        snap.deck = fakeDeck
+        
+        snap.play()
+        
+        verifyMessageDisplayed(message: "Player 1 turned A♠️")
+        verifyMessageDisplayed(message: "Game over")
+    }
+
     
     func verifyMessageDisplayed(message: String) {
         let foundMessage = statusMessages.first { $0 == message }
-        XCTAssertTrue((foundMessage != nil))
+        if foundMessage == nil {
+            XCTFail("Couldn't find message \(message)")
+        } else {
+            XCTAssertEqual(message, foundMessage)
+        }
     }
     
     func displayStatus(message: String) {

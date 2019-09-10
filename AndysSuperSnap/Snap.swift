@@ -15,10 +15,15 @@ class Snap {
         presenter.displayStatus(message: "Get ready....")
         
         if !deck.isEmpty() {
-            presenter.displayStatus(message: "Player 1 turned 5H")
             
-            let drawnCard = deck.takeCard()?.value
+            let theCard = deck.takeCard()
             
+            let drawnCard = theCard?.value
+            if drawnCard != nil {
+                let theString = "Player 1 turned " + drawnCard!
+                presenter.displayStatus(message: theString)
+            }
+
             presenter.updateCurrentCardView(drawnCard: drawnCard)
             presenter.updatePreviousCardView(drawnCard: previousDrawnCard)
             
