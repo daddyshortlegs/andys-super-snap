@@ -57,6 +57,21 @@ class SnapTests: XCTestCase, GameStatusPresenter {
         verifyMessageDisplayed(message: "Game over")
     }
 
+    func testShouldTurnAThirdCard() {
+        fakeDeck = FakeDeck()
+        fakeDeck.addCard(Card(pipValue: .five, suit: .hearts))
+        fakeDeck.addCard(Card(pipValue: .jack, suit: .diamonds))
+        fakeDeck.addCard(Card(pipValue: .ace, suit: .spades))
+        snap.deck = fakeDeck
+        
+        snap.play()
+        
+        verifyMessageDisplayed(message: "Player 1 turned A♠️")
+        verifyMessageDisplayed(message: "Player 2 turned J♦️")
+        verifyMessageDisplayed(message: "Player 1 turned 5❤️")
+        verifyMessageDisplayed(message: "Game over")
+    }
+
     
     
     func verifyMessageDisplayed(message: String) {
