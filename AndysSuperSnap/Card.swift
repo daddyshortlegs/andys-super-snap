@@ -22,8 +22,8 @@ struct Card {
         case king = "K"
     }
     
-    var pipValue: Pip
-    var suit: Suit
+    let pipValue: Pip
+    let suit: Suit
     
     var value: String {
         return "\(pipValue.rawValue)\(suit.rawValue)"
