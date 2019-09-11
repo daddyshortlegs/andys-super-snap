@@ -28,4 +28,8 @@ struct Card {
     var value: String {
         return "\(pipValue.rawValue)\(suit.rawValue)"
     }
+
+    func matches(other: Card) -> Bool {
+        return self.pipValue == other.pipValue
+    }
 }
