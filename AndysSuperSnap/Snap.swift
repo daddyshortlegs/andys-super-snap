@@ -14,19 +14,16 @@ class Snap {
         presenter.displayStatus(message: "Get ready....")
         
         while !deck.isEmpty() {
-            let drawnCard = deck.takeCard()
-            
-            //let drawnCard = theCard?.value
-            if drawnCard != nil {
+            if let drawnCard = deck.takeCard() {
                 if cardsMatch(previous: previousDrawnCard, current: drawnCard) {
                     presenter.displayStatus(message: "SNAP! Player \(currentPlayer) wins!!!")
                 }
                 
-                presenter.displayStatus(message: "Player \(currentPlayer) turned " + drawnCard!.value)
+                presenter.displayStatus(message: "Player \(currentPlayer) turned " + drawnCard.value)
                 switchPlayer()
 
 
-                presenter.updateCurrentCardView(drawnCard: drawnCard?.value)
+                presenter.updateCurrentCardView(drawnCard: drawnCard.value)
                 presenter.updatePreviousCardView(drawnCard: previousDrawnCard?.value)
                 
                 previousDrawnCard = drawnCard
