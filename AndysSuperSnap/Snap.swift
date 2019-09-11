@@ -18,13 +18,11 @@ class Snap {
             
             //let drawnCard = theCard?.value
             if drawnCard != nil {
-                let theString = "Player \(currentPlayer) turned " + drawnCard!.value
-                
                 if cardsMatch(previous: previousDrawnCard, current: drawnCard) {
-                    presenter.displayStatus(message: "SNAP! Player 1 wins!!!")
+                    presenter.displayStatus(message: "SNAP! Player \(currentPlayer) wins!!!")
                 }
                 
-                presenter.displayStatus(message: theString)
+                presenter.displayStatus(message: "Player \(currentPlayer) turned " + drawnCard!.value)
                 switchPlayer()
 
 

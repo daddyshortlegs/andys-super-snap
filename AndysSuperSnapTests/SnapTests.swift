@@ -87,6 +87,23 @@ class SnapTests: XCTestCase, GameStatusPresenter {
         verifyMessageDisplayed(message: "SNAP! Player 1 wins!!!")
     }
 
+    func testPlayer2ShouldWin_whenMatchingCard() {
+        fakeDeck = FakeDeck()
+        fakeDeck.addCard(Card(pipValue: .five, suit: .clubs))
+        fakeDeck.addCard(Card(pipValue: .five, suit: .hearts))
+        fakeDeck.addCard(Card(pipValue: .jack, suit: .diamonds))
+        fakeDeck.addCard(Card(pipValue: .ace, suit: .spades))
+        snap.deck = fakeDeck
+        
+        snap.play()
+        
+        verifyMessageDisplayed(message: "Player 1 turned A♠️")
+        verifyMessageDisplayed(message: "Player 2 turned J♦️")
+        verifyMessageDisplayed(message: "Player 1 turned 5❤️")
+        verifyMessageDisplayed(message: "Player 2 turned 5♣️")
+        verifyMessageDisplayed(message: "SNAP! Player 2 wins!!!")
+    }
+
     
     
     func verifyMessageDisplayed(message: String) {
