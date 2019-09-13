@@ -1,3 +1,5 @@
+import Foundation
+
 class Snap {
     private let presenter: GameStatusPresenter
     var deck: Deck = Standard52CardDeck()
@@ -22,9 +24,12 @@ class Snap {
                 presenter.displayStatus(message: "Player \(currentPlayer) turned " + drawnCard.value)
                 switchPlayer()
 
-
-                presenter.updateCurrentCardView(drawnCard: drawnCard.value)
-                presenter.updatePreviousCardView(drawnCard: previousDrawnCard?.value)
+                DispatchQueue.main.async {
+                    self.presenter.updateCurrentCardView(drawnCard: drawnCard.value)
+                    self.presenter.updatePreviousCardView(drawnCard: self.previousDrawnCard?.value)
+                }
+                
+                sleep(UInt32(TimeInterval(1)))
                 
                 previousDrawnCard = drawnCard
             }

@@ -24,9 +24,9 @@ class ViewController: UIViewController, GameStatusPresenter {
         
         let snap = Snap(presenter: self)
         
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        DispatchQueue.global(qos: .background).async {
             snap.play()
-        }
+        }        
     }
 
     func drawCard(cardView: UILabel) {
@@ -54,7 +54,9 @@ class ViewController: UIViewController, GameStatusPresenter {
     }
     
     func displayStatus(message: String) {
-        self.gameStatus.text = message
+        DispatchQueue.main.async {
+            self.gameStatus.text = message
+        }
     }
     
 }
