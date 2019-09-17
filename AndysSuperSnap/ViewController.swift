@@ -16,19 +16,33 @@ class ViewController: UIViewController, GameStatusPresenter {
     
     @IBOutlet weak var gameStatus: UILabel!
     
+    @IBOutlet weak var deck: DeckView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         drawCard(cardView: previousCard)
         drawCard(cardView: currentCard)
-        
+    
         let snap = Snap(presenter: self)
         
         DispatchQueue.global(qos: .background).async {
             snap.play()
-        }        
+        }
+        
+
     }
 
+    func drawDeck(deckView: UIView) {
+        deckView.layer.cornerRadius = 10
+        deckView.layer.masksToBounds = true
+
+        deckView.layer.shadowColor = UIColor.black.cgColor
+        deckView.layer.shadowOpacity = 1
+        deckView.layer.shadowOffset = .zero
+        deckView.layer.shadowRadius = 10
+    }
+    
     func drawCard(cardView: UILabel) {
         cardView.layer.cornerRadius = 10
         cardView.layer.borderColor = UIColor.black.cgColor

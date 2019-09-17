@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A16B5120232C3B1400245F65 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B511F232C3B1400245F65 /* DeckView.swift */; };
 		A19D6C2E23259E7C00575DD3 /* GameStatusPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D6C2D23259E7C00575DD3 /* GameStatusPresenter.swift */; };
 		A19D6C302325A32200575DD3 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D6C2F2325A32200575DD3 /* Snap.swift */; };
 		A19D6C322325A86300575DD3 /* SnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D6C312325A86300575DD3 /* SnapTests.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A16B511F232C3B1400245F65 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		A19D6C2D23259E7C00575DD3 /* GameStatusPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusPresenter.swift; sourceTree = "<group>"; };
 		A19D6C2F2325A32200575DD3 /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		A19D6C312325A86300575DD3 /* SnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapTests.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				A19D6C2D23259E7C00575DD3 /* GameStatusPresenter.swift */,
 				A19D6C2F2325A32200575DD3 /* Snap.swift */,
 				A19D6C332325AB6C00575DD3 /* Deck.swift */,
+				A16B511F232C3B1400245F65 /* DeckView.swift */,
 			);
 			path = AndysSuperSnap;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				A19D6C342325AB6C00575DD3 /* Deck.swift in Sources */,
 				A1CD659D2322F5A1004C0189 /* Standard52CardDeck.swift in Sources */,
 				A19D6C2E23259E7C00575DD3 /* GameStatusPresenter.swift in Sources */,
+				A16B5120232C3B1400245F65 /* DeckView.swift in Sources */,
 				A1CD657B2322E7F9004C0189 /* ViewController.swift in Sources */,
 				A1CD65992322EE81004C0189 /* Card.swift in Sources */,
 				A1CD65792322E7F9004C0189 /* AppDelegate.swift in Sources */,

@@ -14,28 +14,34 @@ class Snap {
         deck.shuffle()
         
         presenter.displayStatus(message: "Get ready....")
+        var gameOver = false
         
-        while !deck.isEmpty() {
-            if let drawnCard = deck.takeCard() {
-                if cardsMatch(previous: previousDrawnCard, current: drawnCard) {
-                    presenter.displayStatus(message: "SNAP! Player \(currentPlayer) wins!!!")
-                }
-                
-                presenter.displayStatus(message: "Player \(currentPlayer) turned " + drawnCard.value)
-                switchPlayer()
+        while let drawnCard = deck.takeCard() {
+            presenter.displayStatus(message: "Player \(currentPlayer) turned " + drawnCard.value)
 
-                DispatchQueue.main.async {
-                    self.presenter.updateCurrentCardView(drawnCard: drawnCard.value)
-                    self.presenter.updatePreviousCardView(drawnCard: self.previousDrawnCard?.value)
-                }
-                
-                sleep(UInt32(TimeInterval(1)))
-                
-                previousDrawnCard = drawnCard
+            if cardsMatch(previous: previousDrawnCard, current: drawnCard) {
+                gameOver = true
+                break
             }
+
+
+            switchPlayer()
+
+            DispatchQueue.main.async {
+                self.presenter.updateCurrentCardView(drawnCard: drawnCard.value)
+                self.presenter.updatePreviousCardView(drawnCard: self.previousDrawnCard?.value)
+            }
+            
+//                sleep(UInt32(TimeInterval(1)))
+            
+            previousDrawnCard = drawnCard
         }
 
-        presenter.displayStatus(message: "Game over")
+        if gameOver == true {
+            presenter.displayStatus(message: "SNAP! Player \(currentPlayer) wins!!!")
+        } else {
+            presenter.displayStatus(message: "Game over")
+        }
     }
     
     private func cardsMatch(previous: Card?, current: Card?) -> Bool {

@@ -18,6 +18,8 @@ class SnapTests: XCTestCase, GameStatusPresenter {
     }
     
     func testShouldGameOverMessage_whenNoCardsTurned() {
+        fakeDeck = FakeDeck()
+        snap.deck = fakeDeck
         snap.play()
         verifyMessageDisplayed(message: "Game over")
     }
