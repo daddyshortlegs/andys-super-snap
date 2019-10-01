@@ -18,19 +18,25 @@ class ViewController: UIViewController, GameStatusPresenter {
     
     @IBOutlet weak var deck: DeckView!
     
+    var snap: Snap?
+
+    
+    
+    @IBAction func takeCard(_ sender: UIButton) {
+        print("I've been clicked")
+        snap?.takeTurn()
+
+        if snap?.isGameOver() == true {
+            displayStatus(message: "Draw :-(")
+            sender.isHidden = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        snap = Snap(presenter: self)
         drawCard(cardView: previousCard)
         drawCard(cardView: currentCard)
-    
-        let snap = Snap(presenter: self)
-        
-        DispatchQueue.global(qos: .background).async {
-            snap.play()
-        }
-        
-
     }
 
     func drawDeck(deckView: UIView) {
@@ -51,16 +57,16 @@ class ViewController: UIViewController, GameStatusPresenter {
     }
     
     func updateCurrentCardView(drawnCard: String?) {
-        self.showCard(cardView: self.currentCard, value: drawnCard)
+        showCard(cardView: self.currentCard, value: drawnCard)
     }
     
     func updatePreviousCardView(drawnCard: String?) {
         if drawnCard != nil {
-            self.showCard(cardView: self.previousCard, value: drawnCard)
+            showCard(cardView: self.previousCard, value: drawnCard)
         }
     }
     
-    func showCard(cardView: UILabel, value: String?) {
+    private func showCard(cardView: UILabel, value: String?) {
         if value != nil {
             cardView.text = value
             cardView.isHidden = false
