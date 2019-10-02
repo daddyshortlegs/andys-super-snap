@@ -14,7 +14,6 @@ class Snap {
     }
     
     func takeTurn() {
-        
         if let drawnCard = deck.takeCard() {
             presenter.displayStatus(message: "Player \(currentPlayer) turned " + drawnCard.value)
 
@@ -29,10 +28,14 @@ class Snap {
             self.presenter.updatePreviousCardView(drawnCard: self.previousDrawnCard?.value)
                         
             previousDrawnCard = drawnCard
+        } else {
+            presenter.gameOver(message: "Draw :-(")
         }
 
         if gameOver == true {
-            presenter.displayStatus(message: "SNAP! Player \(currentPlayer) wins!!!")
+            var maxRandom = 2000
+            
+            presenter.gameOver(message: "SNAP! Player \(currentPlayer) wins!!!")
         }
     }
     
@@ -52,4 +55,17 @@ class Snap {
         }
         presenter.displayStatus(message: "Player \(currentPlayer) turn")
     }
+}
+
+
+extension Int {
+  var arc4random: Int {
+    if self > 0 {
+      return Int(arc4random_uniform(UInt32(self)))
+    } else if self < 0 {
+      return -Int(arc4random_uniform(UInt32(self)))
+    } else {
+      return 0
+    }
+  }
 }

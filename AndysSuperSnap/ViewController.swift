@@ -19,17 +19,11 @@ class ViewController: UIViewController, GameStatusPresenter {
     @IBOutlet weak var deck: DeckView!
     
     var snap: Snap?
-
     
+    @IBOutlet weak var deckButton: UIButton!
     
     @IBAction func takeCard(_ sender: UIButton) {
-        print("I've been clicked")
         snap?.takeTurn()
-
-        if snap?.isGameOver() == true {
-            displayStatus(message: "Draw :-(")
-            sender.isHidden = true
-        }
     }
     
     override func viewDidLoad() {
@@ -71,6 +65,11 @@ class ViewController: UIViewController, GameStatusPresenter {
             cardView.text = value
             cardView.isHidden = false
         }
+    }
+    
+    func gameOver(message: String) {
+        displayStatus(message: message)
+        deckButton.isHidden = true
     }
     
     func displayStatus(message: String) {
